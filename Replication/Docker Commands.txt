@@ -1,0 +1,17 @@
+# master redis sunucusunu ayağa kaldırmak 
+docker run 1453:6379 --name redis-master -d redis
+
+# Slave redis sunucusunun ayağa kaldırılması
+docker run -p 1461:6379 --name redis-slave -d redis
+
+# Master ve slave sunucuların iplerinin öğrenilmesi
+docker inspect -f"{{.NetworkSettings.IPAddress}}" redis-master
+docker inspect -f"{{.NetworkSettings.IPAddress}}" redis-slave
+
+# Master ile slave arasında replikasyon ilişkisinin kurulması
+docker exec -it redis-slave redis-cli slaveof 172.17.0.2 6379
+
+# replication ilişkilerinin görülmesi için redis-cli ile bahse konu sunucuya bağlanılıp aşağıdaki kod çalıştırılır
+info replication
+
+eğer kodun çalıştığı sunucu slave ise masterın master ise slavein bilgilerini verir

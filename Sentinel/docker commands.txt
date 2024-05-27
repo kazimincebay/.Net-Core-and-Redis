@@ -1,0 +1,20 @@
+# Docker network oluşturulması
+docker network create redis-network
+
+# Docker mymaster oluşturmak
+docker run -d --name redis-master -p 6379:6379 --network redis-network redis redis-server
+
+# Docker slavelerin oluşturulması
+docker run -d --name redis-slave1 -p 6380:6379 --network redis-network redis redis-server --slaveof redis-master 6379
+docker run -d --name redis-slave2 -p 6381:6379 --network redis-network redis redis-server --slaveof redis-master 6379
+docker run -d --name redis-slave3 -p 6382:6379 --network redis-network redis redis-server --slaveof redis-master 6379
+
+# Docker içerisinde sentinel sunucusunu ayağa kaldırmak
+docker run -d --name redis-sentinel-1 -p 6383:26379 --network redis-network -v C:\Users\kazim\OneDrive\Belgeler\GitHub\.Net-Core-and-Redis-\Sentinel\sentinel.conf:/usr/local/etc/redis/sentinel.conf redis redis-sentinel /usr/local/etc/redis/sentinel.conf
+
+
+# Docker içerisinde bir containerın internal ipsini bulmak
+docker inspect -format='{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' redis-master
+
+# Docker içerisinde tüm containerların iplerini öğrenmek
+docker inspect -format='{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
