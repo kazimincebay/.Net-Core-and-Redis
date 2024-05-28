@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "L7ntEbfB9XN1QtHhkMN1wIgVPPCAnRzg/Ib+7Yf3nah81IBXp+owBAYga1Z97NWs2/UUglyOdz5Wri/p9Mt/KA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\kazim\\OneDrive\\Belgeler\\GitHub\\.Net-Core-and-Redis-\\Projects\\Redis_Cache_Example\\Redis.Pub.Sub.Example\\Redis.Pub.Sub.Publisher.Example.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kazim\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\kazim\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.8\\pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
+    "C:\\Users\\kazim\\.nuget\\packages\\stackexchange.redis\\2.7.33\\stackexchange.redis.2.7.33.nupkg.sha512",
+    "C:\\Users\\kazim\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
